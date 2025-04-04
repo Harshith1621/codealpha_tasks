@@ -1,0 +1,171 @@
+:root {
+  --font: "Lato", sans-serif;
+  --color-dark: #000;
+  --color-light: #fff;
+  --radius: 20px;
+}
+
+body {
+  font-family: var(--font);
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+.gallery_wrapper {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--color-dark);
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.image_wrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  transition: 0.3s;
+}
+
+.image_wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.image_wrapper:hover img {
+  transform: scale(1.1);
+}
+
+/* Lightbox */
+#lightbox_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#lightbox_image {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: var(--radius);
+  transition: transform 0.3s;
+}
+
+/* Controls */
+.lightbox_header {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.lightbox_header button,
+#close {
+  background: var(--color-light);
+  color: var(--color-dark);
+  border: none;
+  padding: 10px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+#close {
+  font-size: 24px;
+}
+
+.lightbox_header button:hover,
+#close:hover {
+  background: #ddd;
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#loadMore,
+#viewLess {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+#loadMore:hover,
+#viewLess:hover {
+  background-color: #444;
+}
+
+#viewLess {
+  display: none; /* Initially hidden */
+}
+
+/* Center the Load More & View Less buttons */
+#loadMore,
+#viewLess {
+  display: block;
+  margin: 20px auto; /* Centers the buttons */
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+#loadMore:hover,
+#viewLess:hover {
+  background: #0056b3;
+}
